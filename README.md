@@ -70,4 +70,15 @@ python3 -m http.server 8000
 It turns unstructured learner feedback into **actionable product rules** — the core of "analyse → recommend → document" that a Solution Expert does daily. And it's directly relevant to TechnoEdge's training-content business.
 
 ---
-*Warm-coloured · hand-crafted · real data · zero dependencies*
+## 🎨 Design — Luxurious Liquid Glass
+
+- **Midnight navy + royal gold + emerald + ruby** palette with Georgia serif headings
+- **Liquid-glass cards** — `backdrop-filter: blur() saturate()` with gradient borders (mask-composite technique)
+- **3D floating hero cards** with `rotateY/rotateX` parallax + drifting particle background
+- **3D tilt KPI cards** — hover triggers `rotateY(-8deg) rotateX(4deg) translateZ(10px)`
+- **3D hover review cards** with `translateZ` + `rotateY` depth
+- **Scroll-reveal animations** via IntersectionObserver
+- **Zero external dependencies** — pure HTML/CSS/vanilla JS, no CDNs
+
+---
+*Luxurious liquid-glass · 3D animated · real data · zero dependencies*
