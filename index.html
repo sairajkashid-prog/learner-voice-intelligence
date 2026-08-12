@@ -7,34 +7,35 @@
 <style>
 /* ===== LUXURY LIQUID-GLASS PALETTE ===== */
 :root{
-  --navy:#0A0E27;--navy2:#131736;--navy3:#1A1F4A;--navy4:#232955;
-  --gold:#D4AF37;--gold-l:#F0D77B;--gold-d:#B8941E;--champ:#F7E7CE;
+  --plum:#160A24;--plum2:#1F0F30;--plum3:#2A1540;--plum4:#351B52;
+  --violet:#7C3AED;--violet-l:#A78BFA;--violet-d:#5B21B6;--orchid:#E879F9;
+  --magenta:#C026D3;--magenta-l:#E879F9;--magenta-d:#9D174B;
   --emerald:#10B981;--emerald-l:#34D399;--emerald-d:#059669;
-  --ruby:#E11D48;--crimson:#BE123C;--ruby-l:#FB7185;
+  --ruby:#E11D48;--crimson:#BE123C;--ruby-l:#FB7185;--cream:#F5E6C8;
   --ivory:#FFF8E7;--ash:#94A3B8;--ash-l:#CBD5E1;
   --glass:rgba(255,248,231,0.05);--glass2:rgba(255,248,231,0.03);
-  --glass-b:rgba(212,175,55,0.22);--glass-h:rgba(212,175,55,0.4);
-  --shadow-d:0 20px 60px rgba(0,0,0,0.5);--shadow-g:0 0 40px rgba(212,175,55,0.12);
+  --glass-b:rgba(124,58,237,0.25);--glass-h:rgba(124,58,237,0.4);
+  --shadow-d:0 20px 60px rgba(0,0,0,0.5);--shadow-g:0 0 40px rgba(124,58,237,0.12);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{font-family:'Helvetica Neue','Segoe UI',Arial,sans-serif;background:var(--navy);color:var(--ivory);line-height:1.6;overflow-x:hidden;min-height:100vh}
+body{font-family:'Helvetica Neue','Segoe UI',Arial,sans-serif;background:var(--plum);color:var(--ivory);line-height:1.6;overflow-x:hidden;min-height:100vh}
 body::before{content:'';position:fixed;inset:0;z-index:-2;
   background:
-    radial-gradient(ellipse 900px 500px at 12% 8%,rgba(26,31,74,0.9),transparent 50%),
-    radial-gradient(ellipse 800px 600px at 88% 92%,rgba(225,29,72,0.05),transparent 50%),
-    radial-gradient(ellipse 600px 400px at 50% 50%,rgba(16,185,129,0.04),transparent 60%),
-    linear-gradient(160deg,var(--navy),var(--navy2))}
+    radial-gradient(ellipse 900px 500px at 12% 8%,rgba(42,21,64,0.9),transparent 50%),
+    radial-gradient(ellipse 800px 600px at 88% 92%,rgba(192,38,211,0.08),transparent 50%),
+    radial-gradient(ellipse 600px 400px at 50% 50%,rgba(124,58,237,0.06),transparent 60%),
+    linear-gradient(160deg,var(--plum),var(--plum2))}
 body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:0.35;
   background-image:
-    radial-gradient(1px 1px at 12% 22%,var(--gold-l),transparent),
-    radial-gradient(1px 1px at 28% 67%,var(--champ),transparent),
-    radial-gradient(1px 1px at 47% 14%,var(--gold-l),transparent),
+    radial-gradient(1px 1px at 12% 22%,var(--orchid),transparent),
+    radial-gradient(1px 1px at 28% 67%,var(--cream),transparent),
+    radial-gradient(1px 1px at 47% 14%,var(--orchid),transparent),
     radial-gradient(1px 1px at 67% 82%,var(--emerald-l),transparent),
     radial-gradient(1px 1px at 82% 37%,var(--ruby-l),transparent),
-    radial-gradient(1px 1px at 92% 58%,var(--champ),transparent),
-    radial-gradient(1.5px 1.5px at 34% 45%,var(--gold),transparent),
-    radial-gradient(1.5px 1.5px at 72% 28%,var(--gold),transparent);
+    radial-gradient(1px 1px at 92% 58%,var(--cream),transparent),
+    radial-gradient(1.5px 1.5px at 34% 45%,var(--violet),transparent),
+    radial-gradient(1.5px 1.5px at 72% 28%,var(--violet),transparent);
   animation:drift 70s linear infinite}
 @keyframes drift{from{transform:translateY(0)}to{transform:translateY(-50px)}}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
@@ -44,12 +45,12 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:0.35;
   backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);
   border-radius:18px;box-shadow:var(--shadow-d);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
 .lg::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;
-  background:linear-gradient(180deg,rgba(212,175,55,0.4),rgba(212,175,55,0.05) 30%,transparent 50%,rgba(212,175,55,0.15));
+  background:linear-gradient(180deg,rgba(124,58,237,0.4),rgba(124,58,237,0.05) 30%,transparent 50%,rgba(124,58,237,0.15));
   -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
   -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 .lg:hover{box-shadow:var(--shadow-d),var(--shadow-g)}
 .lg-pad{padding:28px}
-.lg-pad h3{font-family:Georgia,serif;font-size:1.15rem;color:var(--gold-l);margin-bottom:4px}
+.lg-pad h3{font-family:Georgia,serif;font-size:1.15rem;color:var(--orchid);margin-bottom:4px}
 .lg-pad .d{font-size:.8rem;color:var(--ash);margin-bottom:16px}
 
 /* HERO */
@@ -61,10 +62,10 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:0.35;
   box-shadow:var(--shadow-d),var(--shadow-g);text-align:center;
   animation:floatY 6s ease-in-out infinite;transform-style:preserve-3d}
 .fcard::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;
-  background:linear-gradient(135deg,rgba(212,175,55,0.4),transparent 60%);
+  background:linear-gradient(135deg,rgba(124,58,237,0.4),transparent 60%);
   -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
   -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-.fcard .fv{font-family:Georgia,serif;font-size:1.6rem;font-weight:700;color:var(--gold-l)}
+.fcard .fv{font-family:Georgia,serif;font-size:1.6rem;font-weight:700;color:var(--orchid)}
 .fcard .fv.em{color:var(--emerald-l)}.fcard .fv.rd{color:var(--ruby-l)}
 .fcard .fl{font-size:.66rem;color:var(--ash);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
 .fcard:nth-child(1){top:14%;left:7%;animation-delay:0s;transform:rotateY(-15deg) rotateX(5deg)}
@@ -75,36 +76,36 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:0.35;
 
 .hero-inner{text-align:center;position:relative;z-index:2}
 .hero-badge{display:inline-block;padding:7px 22px;border-radius:30px;
-  background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(225,29,72,0.06));
-  border:1px solid var(--glass-b);color:var(--gold-l);
+  background:linear-gradient(135deg,rgba(124,58,237,0.18),rgba(192,38,211,0.1));
+  border:1px solid var(--glass-b);color:var(--orchid);
   font-size:.76rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
   margin-bottom:24px;backdrop-filter:blur(10px);animation:fadeDown .8s ease}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
 .hero h1{font-family:Georgia,serif;font-size:clamp(2rem,6vw,3.6rem);font-weight:700;line-height:1.1;letter-spacing:-1px;
-  background:linear-gradient(135deg,var(--gold-l) 0%,var(--gold) 40%,var(--champ) 70%,var(--gold-l) 100%);
+  background:linear-gradient(135deg,var(--orchid) 0%,var(--violet) 40%,var(--cream) 70%,var(--orchid) 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  text-shadow:0 0 80px rgba(212,175,55,0.3);animation:fadeUp 1s ease .2s both}
+  text-shadow:0 0 80px rgba(124,58,237,0.3);animation:fadeUp 1s ease .2s both}
 .hero h1 .em{background:linear-gradient(135deg,var(--ruby-l),var(--ruby),var(--crimson));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 .hero .lead{font-size:1.05rem;color:var(--ash-l);max-width:640px;margin:22px auto 0;animation:fadeUp 1s ease .4s both}
-.hero .lead b{color:var(--champ)}
+.hero .lead b{color:var(--cream)}
 .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px;animation:fadeUp 1s ease .6s both}
 .btn{padding:14px 32px;border-radius:12px;font-size:.92rem;font-weight:600;cursor:pointer;border:none;
   transition:all .3s cubic-bezier(.2,.8,.2,1);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
-.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--navy);box-shadow:0 8px 30px rgba(212,175,55,0.35)}
-.btn-gold:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 40px rgba(212,175,55,0.5)}
-.btn-ghost{background:var(--glass);color:var(--gold-l);border:1px solid var(--glass-b);backdrop-filter:blur(10px)}
+.btn-gold{background:linear-gradient(135deg,var(--orchid),var(--violet-d));color:var(--plum);box-shadow:0 8px 30px rgba(124,58,237,0.4)}
+.btn-gold:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 40px rgba(124,58,237,0.55)}
+.btn-ghost{background:var(--glass);color:var(--orchid);border:1px solid var(--glass-b);backdrop-filter:blur(10px)}
 .btn-ghost:hover{background:var(--glass-h);transform:translateY(-2px)}
 
 /* SECTION */
 .section{padding:70px 0;position:relative}
 .sec-head{text-align:center;margin-bottom:50px}
-.sec-head .kicker{color:var(--gold);font-size:.74rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+.sec-head .kicker{color:var(--violet);font-size:.74rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
 .sec-head h2{font-family:Georgia,serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:var(--ivory);letter-spacing:-.5px}
-.sec-head h2 .gd{background:linear-gradient(90deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-head h2 .gd{background:linear-gradient(90deg,var(--orchid),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .sec-head .sub{color:var(--ash);font-size:.94rem;max-width:580px;margin:12px auto 0}
-.divider{width:60px;height:3px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:2px}
+.divider{width:60px;height:3px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--orchid),transparent);border-radius:2px}
 
 /* KPI 3D */
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:30px 0}
@@ -112,10 +113,10 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:0.35;
 .kpi .lg{padding:22px 18px;text-align:center}
 .kpi:hover .lg{transform:rotateY(-8deg) rotateX(4deg) translateZ(10px);box-shadow:var(--shadow-d),var(--shadow-g)}
 .kpi .ic{font-size:1.8rem;margin-bottom:8px}
-.kpi .val{font-family:Georgia,serif;font-size:1.7rem;font-weight:700;color:var(--gold-l);line-height:1}
+.kpi .val{font-family:Georgia,serif;font-size:1.7rem;font-weight:700;color:var(--orchid);line-height:1}
 .kpi .val.em{color:var(--emerald-l)}.kpi .val.rd{color:var(--ruby-l)}
 .kpi .lab{font-size:.72rem;color:var(--ash);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
-.kpi .src{font-size:.66rem;color:var(--gold-d);margin-top:4px;font-weight:600}
+.kpi .src{font-size:.66rem;color:var(--violet-d);margin-top:4px;font-weight:600}
 .kpi .sub{font-size:.7rem;margin-top:2px;font-weight:700}
 .kpi .sub.em{color:var(--emerald-l)}.kpi .sub.rd{color:var(--ruby-l)}
 
@@ -124,11 +125,11 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:0.35;
 .tab{padding:10px 20px;cursor:pointer;font-size:.86rem;font-weight:600;color:var(--ash-l);
   border-radius:12px 12px 0 0;border:1px solid transparent;border-bottom:none;
   background:transparent;transition:all .25s;user-select:none;position:relative}
-.tab:hover{color:var(--gold-l);background:var(--glass)}
-.tab.active{background:var(--glass);color:var(--gold-l);border-color:var(--glass-b);
-  backdrop-filter:blur(10px);box-shadow:0 -4px 20px rgba(212,175,55,0.1)}
+.tab:hover{color:var(--orchid);background:var(--glass)}
+.tab.active{background:var(--glass);color:var(--orchid);border-color:var(--glass-b);
+  backdrop-filter:blur(10px);box-shadow:0 -4px 20px rgba(124,58,237,0.1)}
 .tab.active::after{content:'';position:absolute;bottom:-1px;left:20%;right:20%;height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  background:linear-gradient(90deg,transparent,var(--orchid),transparent)}
 .panel{display:none;animation:fade .4s ease}.panel.active{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
@@ -136,15 +137,15 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:0.35;
 /* CHARTS */
 svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 .bar-row{cursor:pointer}.bar-row:hover .bar-rect{filter:brightness(1.15)}.bar-rect{transition:filter .15s}
-.tooltip{position:fixed;background:#0A0E27;color:var(--ivory);padding:8px 12px;border-radius:10px;
+.tooltip{position:fixed;background:#160A24;color:var(--ivory);padding:8px 12px;border-radius:10px;
   font-size:.76rem;pointer-events:none;z-index:99;opacity:0;transition:opacity .12s;
   box-shadow:0 8px 24px rgba(0,0,0,0.4),0 0 0 1px var(--glass-b);max-width:280px;line-height:1.45;backdrop-filter:blur(10px)}
-.tooltip b{color:var(--gold-l)}.tooltip em{color:var(--emerald-l);font-style:normal}
+.tooltip b{color:var(--orchid)}.tooltip em{color:var(--emerald-l);font-style:normal}
 
 /* CALLOUTS */
-.callout{background:rgba(212,175,55,0.06);border:1px solid var(--glass-b);border-left:4px solid var(--gold);
-  border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.84rem;color:var(--champ)}
-.callout b{color:var(--gold-l)}
+.callout{background:rgba(124,58,237,0.06);border:1px solid var(--glass-b);border-left:4px solid var(--violet);
+  border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.84rem;color:var(--cream)}
+.callout b{color:var(--orchid)}
 .callout.red{background:rgba(225,29,72,0.06);border-color:rgba(225,29,72,0.2);border-left-color:var(--ruby)}
 .callout.red b{color:var(--ruby-l)}
 .callout.green{background:rgba(16,185,129,0.06);border-color:rgba(16,185,129,0.2);border-left-color:var(--emerald)}
@@ -178,7 +179,7 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 .prin .ph{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 .prin .pn{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--ruby-l)}
 .prin .pct{background:var(--ruby);color:var(--ivory);padding:3px 11px;border-radius:14px;font-size:.74rem;font-weight:700}
-.prin .act{font-size:.83rem;color:var(--ash-l);margin-top:7px}.prin .act b{color:var(--gold-l)}
+.prin .act{font-size:.83rem;color:var(--ash-l);margin-top:7px}.prin .act b{color:var(--orchid)}
 .do{position:relative;overflow:hidden;background:var(--glass);border:1px solid var(--glass-b);
   border-left:5px solid var(--emerald);border-radius:14px;padding:16px 20px;margin-bottom:12px;
   backdrop-filter:blur(10px);transition:all .3s;transform-style:preserve-3d}
@@ -196,8 +197,8 @@ svg text{font-family:'Helvetica Neue',Arial,sans-serif}
 
 footer{padding:40px 20px;text-align:center;border-top:1px solid var(--glass-b);margin-top:40px}
 footer .fl{font-size:.82rem;color:var(--ash);line-height:1.8}
-footer .fl b{color:var(--gold-l)}
-footer .fb{font-size:.74rem;color:var(--gold-d);margin-top:8px}
+footer .fl b{color:var(--orchid)}
+footer .fb{font-size:.74rem;color:var(--violet-d);margin-top:8px}
 @media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.fcard{display:none}
   .tabs{overflow-x:auto;flex-wrap:nowrap;white-space:nowrap}.tab{font-size:.8rem;padding:8px 14px}}
 </style>
@@ -302,11 +303,11 @@ footer .fb{font-size:.74rem;color:var(--gold-d);margin-top:8px}
       <div class="lg lg-pad" style="margin-top:18px"><h3>Methodology — be transparent</h3>
         <div class="d">A Solution Expert shows their working, not just magic numbers.</div>
         <ul style="font-size:.84rem;color:var(--ash-l);padding-left:20px;line-height:1.8">
-          <li><b style="color:var(--gold-l)">Data:</b> 107,018 public Coursera reviews, each with a 1-5★ label + free-text comment.</li>
-          <li><b style="color:var(--gold-l)">Sentiment:</b> ratings bucketed → positive (4-5★), neutral (3★), negative (1-2★).</li>
-          <li><b style="color:var(--gold-l)">Themes:</b> lexicon-based keyword matching against curated positive &amp; negative word-lists, counted per review.</li>
-          <li><b style="color:var(--gold-l)">Examples:</b> one representative real review selected per theme.</li>
-          <li><b style="color:var(--gold-l)">Limitation:</b> keyword matching catches explicit mentions; nuanced sarcasm may be missed. A production version would add NLP/embedding classification. Honest about the trade-off.</li>
+          <li><b style="color:var(--orchid)">Data:</b> 107,018 public Coursera reviews, each with a 1-5★ label + free-text comment.</li>
+          <li><b style="color:var(--orchid)">Sentiment:</b> ratings bucketed → positive (4-5★), neutral (3★), negative (1-2★).</li>
+          <li><b style="color:var(--orchid)">Themes:</b> lexicon-based keyword matching against curated positive &amp; negative word-lists, counted per review.</li>
+          <li><b style="color:var(--orchid)">Examples:</b> one representative real review selected per theme.</li>
+          <li><b style="color:var(--orchid)">Limitation:</b> keyword matching catches explicit mentions; nuanced sarcasm may be missed. A production version would add NLP/embedding classification. Honest about the trade-off.</li>
         </ul>
       </div>
     </div>
@@ -327,10 +328,10 @@ footer .fb{font-size:.74rem;color:var(--gold-d);margin-top:8px}
 <script>
 const DATA={"meta":{"totalReviews":107018,"positive":97227,"neutral":5071,"negative":4720,"posPct":90.9,"neuPct":4.7,"negPct":4.4,"avgRating":4.58},"sentDist":[{"rating":1,"count":2469},{"rating":2,"count":2251},{"rating":3,"count":5071},{"rating":4,"count":18054},{"rating":5,"count":79173}],"posThemes":[{"theme":"Highly recommend","count":29131,"pct":30.0},{"theme":"Engaging & enjoyable","count":25555,"pct":26.3},{"theme":"Practical & hands-on","count":15751,"pct":16.2},{"theme":"Good for beginners","count":14918,"pct":15.3},{"theme":"Great instructor","count":13920,"pct":14.3},{"theme":"Clear explanations","count":10086,"pct":10.4}],"negThemes":[{"theme":"Poor assignments / peer review","count":1211,"pct":25.7},{"theme":"Boring / too long","count":480,"pct":10.2},{"theme":"Too basic / superficial","count":450,"pct":9.5},{"theme":"Too hard / fast-paced","count":239,"pct":5.1},{"theme":"Outdated content","count":167,"pct":3.5},{"theme":"Language / subtitle issues","count":142,"pct":3.0},{"theme":"Lack of support","count":74,"pct":1.6}],"lenByRating":[{"rating":1,"avgWords":57,"count":2469},{"rating":2,"avgWords":62,"count":2251},{"rating":3,"avgWords":47,"count":5071},{"rating":4,"avgWords":33,"count":18054},{"rating":5,"avgWords":25,"count":79173}],"examplesPos":[{"theme":"Clear explanations","label":5,"text":"Helpful for people with no experience on the subject matter. Very straight forward and easy to follow."},{"theme":"Practical & hands-on","label":5,"text":"Excellent course! Very informative and useful in understanding how diet and nutrition works on the body."},{"theme":"Great instructor","label":4,"text":"Wonderful course, full of useful tips. The instructors clearly have a lot of enthusiasm for the topic and this shows through in the videos."},{"theme":"Engaging & enjoyable","label":5,"text":"My first completed course — the educator is fantastic, this course is very well structured and engaging throughout."},{"theme":"Highly recommend","label":5,"text":"Great course. I would highly recommend it to anyone starting out in this field."},{"theme":"Good for beginners","label":4,"text":"Good course to start with — covers all the foundations without overwhelming a complete beginner."}],"examplesNeg":[{"theme":"Outdated content","label":2,"text":"Poorly made, very short videos that do not explain the subject matter. Some of the content is outdated and no longer applies."},{"theme":"Too basic / superficial","label":2,"text":"Short, superficial, and lacking any real depth. I expected much more for the time invested."},{"theme":"Boring / too long","label":1,"text":"For me it was boring and too specific. I had great difficulty understanding it. I quit before ending."},{"theme":"Poor assignments / peer review","label":2,"text":"Unclear assignments, lectures are brief and sometimes unclear. Spent more time trying to understand what was being asked than actually learning."},{"theme":"Language / subtitle issues","label":1,"text":"Not practical — some audio files are not working and the subtitles are out of sync."},{"theme":"Too hard / fast-paced","label":1,"text":"The professors go way too fast and are completely monotonous. The examples assume we know basic stats when most of us are rusty."},{"theme":"Lack of support","label":2,"text":"Few explanations, no feedback after doing things wrong. You're completely on your own."}],"principles":[{"theme":"Poor assignments / peer review","pct":25.7,"action":"Use auto-graded quizzes wherever possible; provide crystal-clear rubrics & instructor spot-checks for any peer-graded work."},{"theme":"Boring / too long","pct":10.2,"action":"Break long sessions into 10-15 min micro-modules; add interactive checkpoints & knowledge checks, not just talking-head lectures."},{"theme":"Too basic / superficial","pct":9.5,"action":"Offer tiered depth — a fast-track path for experienced learners alongside fundamentals; clearly signal depth level upfront."},{"theme":"Too hard / fast-paced","pct":5.1,"action":"Add optional prerequisite primers & a self-paced track; let learners control playback speed; signal difficulty honestly."},{"theme":"Outdated content","pct":3.5,"action":"Review & refresh every module every 6 months; assign a content owner; version-stamp each module with a 'last updated' date."}]};
 
-const COL=["#D4AF37","#F0D77B","#B8941E","#F59E0B","#C97A3D","#E08035"];
-const PCOL=["#10B981","#34D399","#059669","#D4AF37","#F0D77B","#B8941E"];
-const NCOL=["#E11D48","#FB7185","#BE123C","#EA580C","#F59E0B","#B8941E","#D4AF37"];
-const STAR={1:"#E11D48",2:"#FB7185",3:"#F59E0B",4:"#F0D77B",5:"#10B981"};
+const COL=["#7C3AED","#E879F9","#C026D3","#A78BFA","#9333EA","#D946EF"];
+const PCOL=["#10B981","#34D399","#059669","#A78BFA","#E879F9","#7C3AED"];
+const NCOL=["#E11D48","#FB7185","#BE123C","#C026D3","#E879F9","#7C3AED","#A78BFA"];
+const STAR={1:"#E11D48",2:"#FB7185",3:"#F59E0B",4:"#E879F9",5:"#10B981"};
 const tip=document.getElementById('tooltip');
 function showTip(e,h){tip.innerHTML=h;tip.style.opacity=1;tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY-10)+'px'}
 function moveTip(e){tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY-10)+'px'}
@@ -350,11 +351,11 @@ el('kpis').innerHTML=k.map(x=>`<div class="kpi"><div class="lg"><div class="ic">
 (function(){const d=DATA.sentDist,max=Math.max(...d.map(x=>x.count));
 const w=430,h=230,pl=42,pb=32,pw=w-pl-12,ph=h-pb-16;
 let s=`<svg width="100%" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet">`;
-for(let g=0;g<=4;g++){const gy=16+ph*(1-g/4);s+=`<line x1="${pl}" y1="${gy}" x2="${pl+pw}" y2="${gy}" stroke="rgba(212,175,55,0.1)"/><text x="${pl-5}" y="${gy+3}" text-anchor="end" font-size="8.5" fill="#94A3B8">${Math.round(max*g/4/1000)}k</text>`}
+for(let g=0;g<=4;g++){const gy=16+ph*(1-g/4);s+=`<line x1="${pl}" y1="${gy}" x2="${pl+pw}" y2="${gy}" stroke="rgba(124,58,237,0.1)"/><text x="${pl-5}" y="${gy+3}" text-anchor="end" font-size="8.5" fill="#94A3B8">${Math.round(max*g/4/1000)}k</text>`}
 const bw=pw/d.length*0.6,gap=pw/d.length;
 d.forEach((x,i)=>{const bx=pl+i*gap+gap*0.2,bh=(x.count/max)*ph,by=16+ph-bh;
 s+=`<g class="bar-row" data-i="${i}"><rect class="bar-rect" x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="5" fill="${STAR[x.rating]}" opacity="0.9"/>`;
-s+=`<text x="${bx+bw/2}" y="${by-5}" text-anchor="middle" font-size="9" fill="#F0D77B" font-weight="700">${Math.round(x.count/1000)}k</text>`;
+s+=`<text x="${bx+bw/2}" y="${by-5}" text-anchor="middle" font-size="9" fill="#E879F9" font-weight="700">${Math.round(x.count/1000)}k</text>`;
 s+=`<text x="${bx+bw/2}" y="${h-pb+15}" text-anchor="middle" font-size="11" fill="#CBD5E1">${x.rating}★</text></g>`});
 s+=`</svg>`;el('chart-sent').innerHTML=s;
 el('chart-sent').querySelectorAll('.bar-row').forEach((g,i)=>{g.addEventListener('mousemove',e=>{showTip(e,`<b>${d[i].rating} star</b><br>${fmtN(d[i].count)} reviews (${(d[i].count/DATA.meta.totalReviews*100).toFixed(1)}%)`);moveTip(e)});g.addEventListener('mouseleave',hideTip)})})();
@@ -365,9 +366,9 @@ const tot=d.reduce((s,x)=>s+x.value,0),w=220,h=180,r=62,ri=38,cx=w/2,cy=h/2-6;
 let s=`<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`;let a=-Math.PI/2;
 d.forEach(x=>{const f=x.value/tot,a2=a+f*2*Math.PI;const p=(rr,aa)=>[cx+rr*Math.cos(aa),cy+rr*Math.sin(aa)];
 const[x0,y0]=p(r,a),[x1,y1]=p(r,a2),[xi1,yi1]=p(ri,a2),[xi0,yi0]=p(ri,a);const lg=f>0.5?1:0;
-s+=`<path d="M${x0} ${y0} A${r} ${r} 0 ${lg} 1 ${x1} ${y1} L${xi1} ${yi1} A${ri} ${ri} 0 ${lg} 0 ${xi0} ${yi0} Z" fill="${x.color}" stroke="#0A0E27" stroke-width="2" class="bar-row" data-l="${x.label}"/>`;a=a2});
-s+=`<text x="${cx}" y="${cy-2}" text-anchor="middle" font-size="19" font-weight="700" fill="#F0D77B">${DATA.meta.avgRating}★</text><text x="${cx}" y="${cy+13}" text-anchor="middle" font-size="8.5" fill="#B8941E">avg rating</text></svg>`;
-el('chart-split').innerHTML=`<div style="text-align:center">${s}</div><div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;font-size:.72rem;color:var(--ash)">`+d.map(x=>`<span><i style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${x.color};margin-right:4px"></i>${x.label} <b style="color:#F0D77B">${(x.value/tot*100).toFixed(1)}%</b></span>`).join('')+`</div>`;
+s+=`<path d="M${x0} ${y0} A${r} ${r} 0 ${lg} 1 ${x1} ${y1} L${xi1} ${yi1} A${ri} ${ri} 0 ${lg} 0 ${xi0} ${yi0} Z" fill="${x.color}" stroke="#160A24" stroke-width="2" class="bar-row" data-l="${x.label}"/>`;a=a2});
+s+=`<text x="${cx}" y="${cy-2}" text-anchor="middle" font-size="19" font-weight="700" fill="#E879F9">${DATA.meta.avgRating}★</text><text x="${cx}" y="${cy+13}" text-anchor="middle" font-size="8.5" fill="#5B21B6">avg rating</text></svg>`;
+el('chart-split').innerHTML=`<div style="text-align:center">${s}</div><div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;font-size:.72rem;color:var(--ash)">`+d.map(x=>`<span><i style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${x.color};margin-right:4px"></i>${x.label} <b style="color:#E879F9">${(x.value/tot*100).toFixed(1)}%</b></span>`).join('')+`</div>`;
 el('chart-split').querySelectorAll('.bar-row').forEach(p=>{p.addEventListener('mousemove',e=>{const lab=p.getAttribute('data-l');const item=d.find(x=>x.label===lab);showTip(e,`<b>${lab}</b><br>${fmtN(item.value)} reviews (${(item.value/tot*100).toFixed(1)}%)`);moveTip(e)});p.addEventListener('mouseleave',hideTip)})})();
 
 /* theme bars */
@@ -378,7 +379,7 @@ const lw=170,bx=lw+6,bw=o.w-lw-58;
 data.forEach((d,i)=>{const y=i*36+8,bh=24,bw2=Math.max(2,(d.pct/o.max)*bw),col=o.colors[i%o.colors.length];
 s+=`<text x="${lw-7}" y="${y+bh-7}" text-anchor="end" font-size="10.5" fill="#CBD5E1">${d.theme}</text>`;
 s+=`<g class="bar-row" data-i="${i}"><rect class="bar-rect" x="${bx}" y="${y}" width="${bw2}" height="${bh}" rx="4" fill="${col}" opacity="0.9"/>`;
-s+=`<text x="${bx+bw2+5}" y="${y+bh-7}" font-size="10" fill="#F0D77B" font-weight="700">${d.pct}${o.unit}</text></g>`});
+s+=`<text x="${bx+bw2+5}" y="${y+bh-7}" font-size="10" fill="#E879F9" font-weight="700">${d.pct}${o.unit}</text></g>`});
 s+=`</svg>`;el(c).innerHTML=s;
 el(c).querySelectorAll('.bar-row').forEach((g,i)=>{const d=data[i];g.addEventListener('mousemove',e=>{showTip(e,`<b>${d.theme}</b><br>${fmtN(d.count)} reviews<br>${d.pct}% of ${o.bucket}`);moveTip(e)});g.addEventListener('mouseleave',hideTip)})}
 hBar('chart-pos',DATA.posThemes,{bucket:'positive',colors:PCOL});
@@ -388,13 +389,13 @@ hBar('chart-neg',DATA.negThemes,{bucket:'negative',colors:NCOL});
 (function(){const d=DATA.lenByRating,max=Math.max(...d.map(x=>x.avgWords));
 const w=430,h=200,pl=36,pb=30,pw=w-pl-12,ph=h-pb-16;
 let s=`<svg width="100%" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet">`;
-for(let g=0;g<=4;g++){const gy=16+ph*(1-g/4);s+=`<line x1="${pl}" y1="${gy}" x2="${pl+pw}" y2="${gy}" stroke="rgba(212,175,55,0.1)"/><text x="${pl-5}" y="${gy+3}" text-anchor="end" font-size="8.5" fill="#94A3B8">${Math.round(max*g/4)}</text>`}
+for(let g=0;g<=4;g++){const gy=16+ph*(1-g/4);s+=`<line x1="${pl}" y1="${gy}" x2="${pl+pw}" y2="${gy}" stroke="rgba(124,58,237,0.1)"/><text x="${pl-5}" y="${gy+3}" text-anchor="end" font-size="8.5" fill="#94A3B8">${Math.round(max*g/4)}</text>`}
 const pts=d.map((x,i)=>[pl+(i/(d.length-1))*pw,16+ph-(x.avgWords/max)*ph]);
 let path=pts.map((p,i)=>(i?'L':'M')+p[0]+' '+p[1]).join(' ');
 s+=`<path d="${path} L${pts[pts.length-1][0]} ${16+ph} L${pts[0][0]} ${16+ph} Z" fill="url(#aL)" opacity="0.2"/>`;
 s+=`<defs><linearGradient id="aL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E11D48"/><stop offset="1" stop-color="#E11D48" stop-opacity="0.05"/></linearGradient></defs>`;
 s+=`<path d="${path}" fill="none" stroke="#E11D48" stroke-width="2.5"/>`;
-pts.forEach((p,i)=>{s+=`<g class="bar-row" data-i="${i}"><circle cx="${p[0]}" cy="${p[1]}" r="5" fill="${STAR[d[i].rating]}" stroke="#0A0E27" stroke-width="1.5"/><text x="${p[0]}" y="${h-pb+15}" text-anchor="middle" font-size="10" fill="#CBD5E1">${d[i].rating}★</text></g>`});
+pts.forEach((p,i)=>{s+=`<g class="bar-row" data-i="${i}"><circle cx="${p[0]}" cy="${p[1]}" r="5" fill="${STAR[d[i].rating]}" stroke="#160A24" stroke-width="1.5"/><text x="${p[0]}" y="${h-pb+15}" text-anchor="middle" font-size="10" fill="#CBD5E1">${d[i].rating}★</text></g>`});
 s+=`</svg><div style="font-size:.74rem;color:var(--ash);margin-top:6px">Unhappy learners (1-2★) write 2× longer reviews — richer, more actionable feedback.</div>`;
 el('chart-len').innerHTML=s;
 el('chart-len').querySelectorAll('.bar-row').forEach((g,i)=>{g.addEventListener('mousemove',e=>{showTip(e,`<b>${d[i].rating} star</b><br>Avg ${d[i].avgWords} words/review<br>${fmtN(d[i].count)} reviews`);moveTip(e)});g.addEventListener('mouseleave',hideTip)})})();
@@ -416,8 +417,10 @@ document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
 t.classList.add('active');el('p-'+t.dataset.t).classList.add('active')})});
 
 /* reveal */
+if(typeof IntersectionObserver!=='undefined'){
 const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));}
 </script>
 </body>
 </html>
