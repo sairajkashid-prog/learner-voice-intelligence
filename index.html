@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learner Voice Intelligence — What Makes Training Succeed</title>
+<style>
+:root{
+  --cream:#FFFBEB; --cream2:#FFF7ED; --paper:#FEF8EC;
+  --terra:#C2410C; --terra-d:#9A3412; --rust:#7C2D12;
+  --orange:#EA580C; --amber:#D97706; --gold:#F59E0B; --sand:#FBBF24;
+  --red:#B91C1C; --green:#15803D; --peach:#FED7AA; --peach-l:#FFEDD5;
+  --ink:#44200C; --ink-l:#78532E; --line:#E7CFA8;
+  --c1:#C2410C; --c2:#EA580C; --c3:#D97706; --c4:#F59E0B; --c5:#B91C1C;
+  --c6:#9A3412; --c7:#E08035; --c8:#D4862A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Helvetica Neue',Arial,sans-serif;
+  background:radial-gradient(circle at 12% 8%,#FDE8C8 0%,transparent 45%),radial-gradient(circle at 88% 82%,#FBE4C4 0%,transparent 40%),linear-gradient(160deg,#FFFBEB,#FEF3D8);
+  background-attachment:fixed;color:var(--ink);line-height:1.55;min-height:100vh}
+.wrap{max-width:1040px;margin:0 auto;padding:22px 20px 60px}
+header{background:linear-gradient(135deg,#7C2D12 0%,#B91C1C 55%,#D97706 100%);
+  border-radius:18px 18px 6px 6px;padding:26px 30px 22px;color:#FFF7ED;
+  box-shadow:0 8px 26px rgba(124,45,18,.28);position:relative;overflow:hidden}
+header::after{content:"";position:absolute;left:-40px;bottom:-40px;width:220px;height:220px;
+  background:radial-gradient(circle,rgba(251,191,36,.25),transparent 70%);border-radius:50%}
+header h1{font-family:Georgia,serif;font-size:1.65rem;font-weight:700;letter-spacing:.3px;text-shadow:0 1px 3px rgba(0,0,0,.2)}
+header .sub{font-size:.92rem;opacity:.92;margin-top:5px;max-width:680px}
+header .badgebar{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+header .b{background:rgba(255,247,237,.16);border:1px solid rgba(255,247,237,.3);padding:5px 13px;border-radius:20px;font-size:.76rem;font-weight:600}
+header .b strong{color:#FBBF24}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:18px 0 6px}
+.kpi{background:linear-gradient(160deg,#FFF7ED,#FEF3D8);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative;box-shadow:0 3px 10px rgba(124,45,18,.07)}
+.kpi .ic{position:absolute;right:12px;top:12px;font-size:1.3rem;opacity:.5}
+.kpi .val{font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:var(--terra-d);line-height:1.1}
+.kpi .lab{font-size:.74rem;color:var(--ink-l);text-transform:uppercase;letter-spacing:.6px;margin-top:5px;font-weight:600}
+.kpi .src{font-size:.66rem;color:var(--amber);margin-top:3px;font-weight:600}
+.kpi .sub{font-size:.72rem;color:var(--green);margin-top:2px;font-weight:700}
+.kpi .sub.neg{color:var(--red)}
+.tabs{display:flex;gap:4px;margin:20px 0 0;border-bottom:2px solid var(--line);flex-wrap:wrap}
+.tab{padding:10px 18px;cursor:pointer;font-size:.88rem;font-weight:600;color:var(--ink-l);border-radius:9px 9px 0 0;border:1px solid transparent;border-bottom:none;transition:.18s;user-select:none}
+.tab:hover{background:var(--peach-l);color:var(--terra)}
+.tab.active{background:var(--terra);color:#FFF7ED;border-color:var(--terra-d);box-shadow:0 -2px 8px rgba(194,65,12,.2)}
+.panel{display:none;animation:fade .35s ease}.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.card{background:linear-gradient(160deg,#FFF7ED,#FEF8EC);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:0 3px 12px rgba(124,45,18,.07)}
+.card h3{font-family:Georgia,serif;font-size:1.08rem;color:var(--terra-d);margin-bottom:3px}
+.card .desc{font-size:.78rem;color:var(--ink-l);margin-bottom:14px}
+svg text{font-family:'Helvetica Neue',Arial,sans-serif}
+.bar-row{cursor:pointer}.bar-row:hover .bar-rect{filter:brightness(1.08)}.bar-rect{transition:filter .15s}
+.tooltip{position:fixed;background:#4A1D09;color:#FFF7ED;padding:7px 11px;border-radius:8px;font-size:.76rem;pointer-events:none;z-index:99;opacity:0;transition:opacity .12s;box-shadow:0 4px 14px rgba(0,0,0,.25);max-width:280px;line-height:1.4}
+.tooltip b{color:#FBBF24}
+.callout{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-left:4px solid var(--amber);border-radius:8px;padding:11px 15px;margin:12px 0;font-size:.85rem;color:var(--rust)}
+.callout b{color:var(--terra-d)}
+.callout.red{background:linear-gradient(135deg,#FEE2E2,#FECACA);border-left-color:var(--red)}
+.callout.red b{color:var(--red)}
+.callout.green{background:linear-gradient(135deg,#DCFCE7,#BBF7D0);border-left-color:var(--green)}
+.callout.green b{color:var(--green)}
+/* review cards */
+.rev{background:#FFFBEB;border:1px solid var(--line);border-radius:11px;padding:13px 15px;margin:10px 0;position:relative}
+.rev .stars{font-size:.85rem;font-weight:700}
+.rev .theme-tag{display:inline-block;background:var(--peach-l);color:var(--terra-d);border:1px solid var(--peach);padding:2px 9px;border-radius:12px;font-size:.68rem;font-weight:700;margin-bottom:6px}
+.rev .txt{font-size:.84rem;color:var(--ink);font-style:italic;line-height:1.5}
+.rev.neg .theme-tag{background:#FEE2E2;color:var(--red);border-color:#FECACA}
+/* principle cards */
+.prin{background:linear-gradient(160deg,#FFF7ED,#FEF3D8);border:1px solid var(--line);border-left:5px solid var(--red);border-radius:12px;padding:14px 17px;margin-bottom:11px}
+.prin .ph{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.prin .pname{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--terra-d)}
+.prin .pct{background:var(--red);color:#FFF7ED;padding:3px 11px;border-radius:14px;font-size:.74rem;font-weight:700}
+.prin .act{font-size:.83rem;color:var(--ink);margin-top:7px}
+.prin .act b{color:var(--terra-d)}
+.do{background:linear-gradient(160deg,#F0FDF4,#DCFCE7);border:1px solid #BBF7D0;border-left:5px solid var(--green);border-radius:12px;padding:14px 17px;margin-bottom:11px}
+.do .dname{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--green)}
+.do .act{font-size:.83rem;color:var(--ink);margin-top:6px}
+footer{margin-top:30px;padding-top:18px;border-top:2px solid var(--line);font-size:.78rem;color:var(--ink-l);text-align:center;line-height:1.7}
+footer b{color:var(--terra-d)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:.74rem;color:var(--ink-l)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:4px;vertical-align:middle}
+@media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}header h1{font-size:1.3rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Learner Voice Intelligence — What Makes Training Succeed or Fail</h1>
+  <div class="sub">What should TechnoEdge's training content <strong>do more of</strong> and <strong>avoid</strong>? Built by analysing <strong>107,018 real learner reviews</strong> from Coursera — turning raw student feedback into concrete content-design rules for an AI-first learning company.</div>
+  <div class="badgebar">
+    <span class="b">Built for <strong>TechnoEdge Learning Services</strong></span>
+    <span class="b">Solution Expert Intern · Portfolio</span>
+    <span class="b">Real data · 107k Coursera reviews</span>
+    <span class="b">By <strong>Sairaj Kashid</strong></span>
+  </div>
+</header>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="tabs" id="tabs">
+  <div class="tab active" data-t="sentiment">Sentiment</div>
+  <div class="tab" data-t="works">What Works</div>
+  <div class="tab" data-t="hurts">What Hurts</div>
+  <div class="tab" data-t="action">Action Plan</div>
+</div>
+
+<div id="tooltip" class="tooltip"></div>
+
+<!-- SENTIMENT -->
+<div class="panel active" id="p-sentiment">
+  <div class="grid2">
+    <div class="card"><h3>Rating distribution — 107,018 real reviews</h3>
+      <div class="desc">How learners rated their courses, 1 to 5 stars. Hover bars for exact counts.</div>
+      <div id="chart-sent"></div>
+    </div>
+    <div class="card"><h3>Sentiment split</h3>
+      <div class="desc">Positive (4-5★), neutral (3★) and negative (1-2★) share of all reviews.</div>
+      <div id="chart-split"></div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>The "complaint length" signal</h3>
+      <div class="desc">Average review length (words) by rating — unhappy learners write far more. This is where the real, actionable feedback hides.</div>
+      <div id="chart-len"></div>
+      <div class="callout red"><b>Insight:</b> 1-star reviews average <b>57 words</b> — more than double the <b>25 words</b> of 5-star praise. Dissatisfied learners explain <i>exactly</i> what went wrong. Mining these long negative reviews is the highest-value listening a training company can do.</div>
+    </div>
+    <div class="card"><h3>What this means for TechnoEdge</h3>
+      <div class="desc">The market is mostly happy — but the 4.4% negative tail is gold.</div>
+      <div class="callout green"><b>Good news:</b> <b>90.9%</b> of reviews are positive (4-5★) and the average rating is <b>4.58</b>. Online learning generally delights learners.</div>
+      <div class="callout red"><b>Opportunity:</b> The <b>4,720 negative reviews</b> cluster around a few fixable themes (assignments, pacing, content freshness). If TechnoEdge systematically avoids these, its courses can beat the market average.</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WORKS -->
+<div class="panel" id="p-works">
+  <div class="callout green" style="margin-top:16px"><b>What learners love:</b> Across 97,227 positive reviews, six themes appear again and again. These are the design choices TechnoEdge should replicate in every training program.</div>
+  <div class="card" style="margin-top:14px"><h3>Positive theme frequency</h3>
+    <div class="desc">% of positive reviews (4-5★) mentioning each theme. Hover for counts.</div>
+    <div id="chart-pos"></div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>Real learner voices — what praise sounds like</h3>
+    <div class="desc">Actual excerpts from the 107k-review dataset, one per theme.</div>
+    <div id="rev-pos"></div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>Design rules — DO more of this</h3>
+    <div id="do-list"></div>
+  </div>
+</div>
+
+<!-- WHAT HURTS -->
+<div class="panel" id="p-hurts">
+  <div class="callout red" style="margin-top:16px"><b>What learners hate:</b> Across 4,720 negative reviews (1-2★), seven recurring problems account for most dissatisfaction. These are the traps TechnoEdge must actively avoid.</div>
+  <div class="card" style="margin-top:14px"><h3>Negative theme frequency</h3>
+    <div class="desc">% of negative reviews (1-2★) mentioning each theme. The #1 issue is assignments &amp; peer review — not content quality.</div>
+    <div id="chart-neg"></div>
+  </div>
+  <div class="card" style="margin-top:16px"><h3>Real learner voices — what complaints sound like</h3>
+    <div class="desc">Actual excerpts from negative reviews, one per theme.</div>
+    <div id="rev-neg"></div>
+  </div>
+</div>
+
+<!-- ACTION PLAN -->
+<div class="panel" id="p-action">
+  <div class="callout" style="margin-top:16px"><b>The deliverable:</b> A data-backed content-quality playbook for TechnoEdge — each rule tied to a real, measured learner pain point. This is the kind of "analyse → recommend → document" output a Solution Expert produces.</div>
+  <h3 style="font-family:Georgia,serif;color:var(--terra-d);margin:18px 0 10px;font-size:1.05rem">🔴 Avoid these (from negative-review analysis)</h3>
+  <div id="prin-list"></div>
+  <h3 style="font-family:Georgia,serif;color:var(--green);margin:18px 0 10px;font-size:1.05rem">🟢 Replicate these (from positive-review analysis)</h3>
+  <div id="do-list2"></div>
+  <div class="card" style="margin-top:16px"><h3>How this analysis was done (methodology — be transparent)</h3>
+    <div class="desc">A Solution Expert shows their working, not just magic numbers.</div>
+    <ul style="font-size:.84rem;color:var(--ink);padding-left:20px;line-height:1.8">
+      <li><b>Data:</b> 107,018 public Coursera reviews, each with a 1-5 star label and free-text comment.</li>
+      <li><b>Sentiment:</b> ratings bucketed as positive (4-5★), neutral (3★), negative (1-2★).</li>
+      <li><b>Theme extraction:</b> lexicon-based keyword matching against curated positive &amp; negative theme word-lists (e.g. "outdated", "peer review", "clear", "practical"), counted per review.</li>
+      <li><b>Percentages:</b> theme count ÷ total reviews in that sentiment bucket.</li>
+      <li><b>Examples:</b> one representative real review selected per theme.</li>
+      <li><b>Limitation:</b> keyword matching catches explicit mentions; nuanced sarcasm may be missed. A production version would add NLP/embedding-based classification. Honest about the trade-off.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <b>Data source:</b> Coursera reviews dataset — 107,018 real learner reviews with 1-5 star ratings &amp; free-text comments. All figures computed in Python from raw CSV records.<br>
+  <b>Built by Sairaj Sandip Kashid</b> · github.com/sairajkashid-prog · For TechnoEdge Solution Expert Intern application · Warm-coloured, hand-crafted, zero external dependencies.
+</footer>
+</div>
+<script>
+const DATA = {"meta":{"totalReviews":107018,"positive":97227,"neutral":5071,"negative":4720,"posPct":90.9,"neuPct":4.7,"negPct":4.4,"avgRating":4.58},"sentDist":[{"rating":1,"count":2469},{"rating":2,"count":2251},{"rating":3,"count":5071},{"rating":4,"count":18054},{"rating":5,"count":79173}],"posThemes":[{"theme":"Highly recommend","count":29131,"pct":30.0},{"theme":"Engaging & enjoyable","count":25555,"pct":26.3},{"theme":"Practical & hands-on","count":15751,"pct":16.2},{"theme":"Good for beginners","count":14918,"pct":15.3},{"theme":"Great instructor","count":13920,"pct":14.3},{"theme":"Clear explanations","count":10086,"pct":10.4}],"negThemes":[{"theme":"Poor assignments / peer review","count":1211,"pct":25.7},{"theme":"Boring / too long","count":480,"pct":10.2},{"theme":"Too basic / superficial","count":450,"pct":9.5},{"theme":"Too hard / fast-paced","count":239,"pct":5.1},{"theme":"Outdated content","count":167,"pct":3.5},{"theme":"Language / subtitle issues","count":142,"pct":3.0},{"theme":"Lack of support","count":74,"pct":1.6}],"lenByRating":[{"rating":1,"avgWords":57,"count":2469},{"rating":2,"avgWords":62,"count":2251},{"rating":3,"avgWords":47,"count":5071},{"rating":4,"avgWords":33,"count":18054},{"rating":5,"avgWords":25,"count":79173}],"examplesPos":[{"theme":"Clear explanations","label":5,"text":"Helpful for people with no experience on the subject matter. Very straight forward and easy to follow."},{"theme":"Practical & hands-on","label":5,"text":"Excellent course! Very informative and useful in understanding how diet and nutrition works on the body."},{"theme":"Great instructor","label":4,"text":"Wonderful course, full of useful tips. The instructors clearly have a lot of enthusiasm for the topic and this shows through in the videos, making it more enjoyable."},{"theme":"Engaging & enjoyable","label":5,"text":"My first completed course — the educator is fantastic, this course is very well structured and engaging throughout."},{"theme":"Highly recommend","label":5,"text":"Great course. I would highly recommend it to anyone starting out in this field."},{"theme":"Good for beginners","label":4,"text":"Good course to start with — covers all the foundations without overwhelming a complete beginner."}],"examplesNeg":[{"theme":"Outdated content","label":2,"text":"Poorly made, very short videos that do not explain the subject matter. Some of the content is outdated and no longer applies."},{"theme":"Too basic / superficial","label":2,"text":"Short, superficial, and lacking any real depth. I expected much more for the time invested."},{"theme":"Boring / too long","label":1,"text":"For me it was boring and too specific. I had great difficulty understanding it. I quit before ending."},{"theme":"Poor assignments / peer review","label":2,"text":"Unclear assignments, lectures are brief and sometimes unclear. Spent more time trying to understand what was being asked than actually learning."},{"theme":"Language / subtitle issues","label":1,"text":"Not practical — some audio files are not working and the subtitles are out of sync."},{"theme":"Too hard / fast-paced","label":1,"text":"The professors go way too fast and are completely monotonous. The examples assume we know basic stats when most of us are rusty."},{"theme":"Lack of support","label":2,"text":"Few explanations, no feedback after doing things wrong. You're completely on your own."}],"principles":[{"theme":"Poor assignments / peer review","pct":25.7,"action":"Use auto-graded quizzes wherever possible; provide crystal-clear rubrics & instructor spot-checks for any peer-graded work."},{"theme":"Boring / too long","pct":10.2,"action":"Break long sessions into 10-15 min micro-modules; add interactive checkpoints & knowledge checks, not just talking-head lectures."},{"theme":"Too basic / superficial","pct":9.5,"action":"Offer tiered depth — a fast-track path for experienced learners alongside fundamentals; clearly signal depth level upfront."},{"theme":"Too hard / fast-paced","pct":5.1,"action":"Add optional prerequisite primers & a self-paced track; let learners control playback speed; signal difficulty honestly."},{"theme":"Outdated content","pct":3.5,"action":"Review & refresh every module every 6 months; assign a content owner; version-stamp each module with a 'last updated' date."}]};
+
+const COL=["#C2410C","#EA580C","#D97706","#F59E0B","#B91C1C","#9A3412","#E08035","#D4862A"];
+const STAR_COL={1:"#B91C1C",2:"#DC2626",3:"#D97706",4:"#F59E0B",5:"#15803D"};
+const tip=document.getElementById('tooltip');
+function showTip(e,html){tip.innerHTML=html;tip.style.opacity=1;tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY-10)+'px'}
+function moveTip(e){tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY-10)+'px'}
+function hideTip(){tip.style.opacity=0}
+function el(id){return document.getElementById(id)}
+function fmtN(n){return n.toLocaleString('en-IN')}
+
+/* KPIs */
+(function(){
+  const m=DATA.meta;
+  const k=[
+    {ic:'📝',val:fmtN(m.totalReviews),lab:'Real reviews analysed',src:'Coursera dataset',sub:m.avgRating+' ★ avg rating'},
+    {ic:'😊',val:m.posPct+'%',lab:'Positive reviews',src:'4-5 star',sub:fmtN(m.positive)+' reviews',},
+    {ic:'😐',val:m.neuPct+'%',lab:'Neutral reviews',src:'3 star',sub:fmtN(m.neutral)+' reviews'},
+    {ic:'😞',val:m.negPct+'%',lab:'Negative reviews',src:'1-2 star',sub:fmtN(m.negative)+' reviews',negcol:1}
+  ];
+  el('kpis').innerHTML=k.map(x=>`<div class="kpi"><div class="ic">${x.ic}</div><div class="val">${x.val}</div><div class="lab">${x.lab}</div><div class="src">${x.src}</div><div class="sub${x.negcol?' neg':''}">${x.sub}</div></div>`).join('');
+})();
+
+/* vertical bar — sentiment */
+(function(){
+  const d=DATA.sentDist,max=Math.max(...d.map(x=>x.count));
+  const w=430,h=230,padL=42,padB=32,plotW=w-padL-12,plotH=h-padB-16;
+  let svg=`<svg width="100%" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet">`;
+  for(let g=0;g<=4;g++){const gy=16+plotH*(1-g/4);svg+=`<line x1="${padL}" y1="${gy}" x2="${padL+plotW}" y2="${gy}" stroke="#EFD9B0" stroke-width="1"/><text x="${padL-5}" y="${gy+3}" text-anchor="end" font-size="8.5" fill="#9A3412">${Math.round(max*g/4/1000)}k</text>`}
+  const bw=plotW/d.length*0.6,gap=plotW/d.length;
+  d.forEach((x,i)=>{const bx=padL+i*gap+gap*0.2,bh=(x.count/max)*plotH,by=16+plotH-bh;
+    svg+=`<g class="bar-row" data-i="${i}"><rect class="bar-rect" x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="5" fill="${STAR_COL[x.rating]}" opacity="0.9"/>
+    <text x="${bx+bw/2}" y="${by-5}" text-anchor="middle" font-size="9" fill="#7C2D12" font-weight="700">${Math.round(x.count/1000)}k</text>
+    <text x="${bx+bw/2}" y="${h-padB+15}" text-anchor="middle" font-size="11" fill="#5b3a1a">${x.rating}★</text></g>`});
+  svg+=`</svg>`;
+  el('chart-sent').innerHTML=svg;
+  el('chart-sent').querySelectorAll('.bar-row').forEach((g,i)=>{g.addEventListener('mousemove',e=>{showTip(e,`<b>${d[i].rating} star</b><br>${fmtN(d[i].count)} reviews (${(d[i].count/DATA.meta.totalReviews*100).toFixed(1)}%)`);moveTip(e)});g.addEventListener('mouseleave',hideTip)});
+})();
+
+/* donut — sentiment split */
+(function(){
+  const d=[{label:'Positive',value:DATA.meta.positive,color:'#15803D'},{label:'Neutral',value:DATA.meta.neutral,color:'#D97706'},{label:'Negative',value:DATA.meta.negative,color:'#B91C1C'}];
+  const total=d.reduce((s,x)=>s+x.value,0),w=220,h=180,r=62,ri=38,cx=w/2,cy=h/2-6;
+  let svg=`<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`;let a0=-Math.PI/2;
+  d.forEach(x=>{const frac=x.value/total,a1=a0+frac*2*Math.PI;
+    const p=(rr,aa)=>[cx+rr*Math.cos(aa),cy+rr*Math.sin(aa)];
+    const [x0,y0]=p(r,a0),[x1,y1]=p(r,a1),[xi1,yi1]=p(ri,a1),[xi0,yi0]=p(ri,a0);
+    const lg=frac>0.5?1:0;
+    svg+=`<path d="M${x0} ${y0} A${r} ${r} 0 ${lg} 1 ${x1} ${y1} L${xi1} ${yi1} A${ri} ${ri} 0 ${lg} 0 ${xi0} ${yi0} Z" fill="${x.color}" stroke="#FFFBEB" stroke-width="2" class="bar-row" data-l="${x.label}"/>`;a0=a1});
+  svg+=`<text x="${cx}" y="${cy-2}" text-anchor="middle" font-size="19" font-weight="700" fill="#7C2D12">${DATA.meta.avgRating}★</text><text x="${cx}" y="${cy+14}" text-anchor="middle" font-size="8.5" fill="#9A3412">avg rating</text></svg>`;
+  el('chart-split').innerHTML=`<div style="text-align:center">${svg}</div><div class="legend">`+d.map(x=>`<span><i style="background:${x.color}"></i>${x.label} <b>${(x.value/total*100).toFixed(1)}%</b></span>`).join('')+`</div>`;
+  el('chart-split').querySelectorAll('.bar-row').forEach(p=>{p.addEventListener('mousemove',e=>{const lab=p.getAttribute('data-l');const item=d.find(x=>x.label===lab);showTip(e,`<b>${lab}</b><br>${fmtN(item.value)} reviews (${(item.value/total*100).toFixed(1)}%)`);moveTip(e)});p.addEventListener('mouseleave',hideTip)});
+})();
+
+/* horizontal bars — themes */
+function hBar(container,data,opts={}){
+  const o=Object.assign({w:460,h:Math.max(160,data.length*36+16),max:Math.max(...data.map(d=>d.pct)),unit:'%'},opts);
+  let svg=`<svg width="100%" viewBox="0 0 ${o.w} ${o.h}" preserveAspectRatio="xMidYMid meet">`;
+  const labW=170,barX=labW+6,barW=o.w-labW-58;
+  data.forEach((d,i)=>{const y=i*36+8,bh=24,bw=Math.max(2,(d.pct/o.max)*barW),c=o.colors?o.colors[i]:COL[i%COL.length];
+    svg+=`<text x="${labW-7}" y="${y+bh-7}" text-anchor="end" font-size="10.5" fill="#5b3a1a">${d.theme}</text>`;
+    svg+=`<g class="bar-row" data-i="${i}"><rect class="bar-rect" x="${barX}" y="${y}" width="${bw}" height="${bh}" rx="4" fill="${c}" opacity="0.9"/>`;
+    svg+=`<text x="${barX+bw+5}" y="${y+bh-7}" font-size="10" fill="#7C2D12" font-weight="700">${d.pct}${o.unit}</text></g>`});
+  svg+=`</svg>`;
+  el(container).innerHTML=svg;
+  el(container).querySelectorAll('.bar-row').forEach((g,i)=>{const d=data[i];g.addEventListener('mousemove',e=>{showTip(e,`<b>${d.theme}</b><br>${fmtN(d.count)} reviews<br>${d.pct}% of ${o.bucket}`);moveTip(e)});g.addEventListener('mouseleave',hideTip)});
+}
+hBar('chart-pos',DATA.posThemes,{bucket:'positive',colors:['#15803D','#16A34A','#D97706','#F59E0B','#C2410C','#EA580C']});
+hBar('chart-neg',DATA.negThemes,{bucket:'negative',colors:['#B91C1C','#DC2626','#EA580C','#D97706','#9A3412','#C2410C','#7C2D12']});
+
+/* review length chart */
+(function(){
+  const d=DATA.lenByRating,max=Math.max(...d.map(x=>x.avgWords));
+  const w=430,h=200,padL=36,padB=30,plotW=w-padL-12,plotH=h-padB-16;
+  let svg=`<svg width="100%" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet">`;
+  for(let g=0;g<=4;g++){const gy=16+plotH*(1-g/4);svg+=`<line x1="${padL}" y1="${gy}" x2="${padL+plotW}" y2="${gy}" stroke="#EFD9B0" stroke-width="1"/><text x="${padL-5}" y="${gy+3}" text-anchor="end" font-size="8.5" fill="#9A3412">${Math.round(max*g/4)}</text>`}
+  // line
+  const pts=d.map((x,i)=>[padL+(i/(d.length-1))*plotW,16+plotH-(x.avgWords/max)*plotH]);
+  let path=pts.map((p,i)=>(i?'L':'M')+p[0]+' '+p[1]).join(' ');
+  svg+=`<path d="${path} L${pts[pts.length-1][0]} ${16+plotH} L${pts[0][0]} ${16+plotH} Z" fill="url(#aL)" opacity="0.25"/>`;
+  svg+=`<defs><linearGradient id="aL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B91C1C"/><stop offset="1" stop-color="#FBBF24" stop-opacity="0.1"/></linearGradient></defs>`;
+  svg+=`<path d="${path}" fill="none" stroke="#B91C1C" stroke-width="2.5"/>`;
+  pts.forEach((p,i)=>{svg+=`<g class="bar-row" data-i="${i}"><circle cx="${p[0]}" cy="${p[1]}" r="5" fill="${STAR_COL[d[i].rating]}" stroke="#FFFBEB" stroke-width="1.5"/><text x="${p[0]}" y="${h-padB+15}" text-anchor="middle" font-size="10" fill="#5b3a1a">${d[i].rating}★</text></g>`});
+  svg+=`</svg><div style="font-size:.74rem;color:#78532E;margin-top:4px">Unhappy learners (1-2★) write 2× longer reviews — richer, more actionable feedback.</div>`;
+  el('chart-len').innerHTML=svg;
+  el('chart-len').querySelectorAll('.bar-row').forEach((g,i)=>{g.addEventListener('mousemove',e=>{showTip(e,`<b>${d[i].rating} star</b><br>Avg ${d[i].avgWords} words/review<br>${fmtN(d[i].count)} reviews`);moveTip(e)});g.addEventListener('mouseleave',hideTip)});
+})();
+
+/* review cards */
+el('rev-pos').innerHTML=DATA.examplesPos.map(r=>`<div class="rev"><span class="theme-tag">${r.theme}</span><div class="stars" style="color:#15803D">${'★'.repeat(r.label)}${'☆'.repeat(5-r.label)}</div><div class="txt">"${r.text}"</div></div>`).join('');
+el('rev-neg').innerHTML=DATA.examplesNeg.map(r=>`<div class="rev neg"><span class="theme-tag">${r.theme}</span><div class="stars" style="color:#B91C1C">${'★'.repeat(r.label)}${'☆'.repeat(5-r.label)}</div><div class="txt">"${r.text}"</div></div>`).join('');
+
+/* DO list (positive rules) */
+const doRules=[
+  {t:'Clear explanations',a:'Structure content in simple, logical steps. Test every module on a beginner — if they can\'t follow it, rewrite it.'},
+  {t:'Practical & hands-on',a:'Every concept ends with a real-world exercise or mini-project. Learners crave applicability, not theory dumps.'},
+  {t:'Great instructor',a:'Pick instructors with visible enthusiasm & expertise; invest in presentation coaching — energy shows.'},
+  {t:'Engaging & enjoyable',a:'Vary formats (video, quiz, discussion, project); keep momentum; celebrate small wins to sustain motivation.'},
+  {t:'Highly recommend',a:'Deliver a "wow" moment early so learners become advocates. Word-of-mouth drives enrolment.'},
+  {t:'Good for beginners',a:'Always offer a true zero-to-one on-ramp; never assume prior knowledge on intro courses.'},
+];
+function doHTML(arr){return arr.map(r=>`<div class="do"><div class="dname">✓ ${r.t}</div><div class="act">${r.a}</div></div>`).join('')}
+el('do-list').innerHTML=doHTML(doRules);
+el('do-list2').innerHTML=doHTML(doRules);
+
+/* AVOID principles */
+el('prin-list').innerHTML=DATA.principles.map((p,i)=>`<div class="prin"><div class="ph"><span class="pname">${i+1}. ${p.theme}</span><span class="pct">${p.pct}% of bad reviews</span></div><div class="act"><b>Fix:</b> ${p.action}</div></div>`).join('');
+
+/* tabs */
+document.querySelectorAll('.tab').forEach(t=>{t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');el('p-'+t.dataset.t).classList.add('active');})});
+</script>
+</body>
+</html>
